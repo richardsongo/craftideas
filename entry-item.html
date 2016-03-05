@@ -1,3 +1,14 @@
+{# Get the relevant entries #}
+{% set categoryQuery = craft.request.getParam('category') %}
+{% set categories = craft.categories.group('sectionName').slug(categoryQuery) %}
+{# Set the search parameters #} 
+{% set searchParams = {
+    relatedTo: categories,
+    section: 'sectionName'
+} %}
+
+
+
 <div class="row">
 
 	<div class="col-lg-2">
@@ -20,13 +31,32 @@
 
             {% if entry.categories | length %}
 
-			IdeaSpace: <a href="{{ entrycateGories.url }}">{{ entrycateGories }}</a>
-			
-			{% endif %}
+			IdeaSpace: 
+		{% for category in entry.IdeaSpace %}
+		
+		<a href="{{ category.slug }}">{{ category.title }}</a>,
+		
+		    {% if loop.last %}
+                    <a href="{{ category.slug }}">{{ category.title }}</a>
+                    {% endif %}
+		
+		{% endfor %}
+
 
 
 			{% if entry.tags | length %}
-			<br>Tags: {% for tag in craft.tags.group('blogTags') %}<a href="{{ url('ideas/tags/'~tag.slug) }}">{{ tag.title }}</a>{% endfor %}
+			<br>Tags: 
+			
+			
+			{% for tag in craft.tags.group('blogTags') %}
+			<a href="{{ url('ideas/tags/'~tag.slug) }}">{{ tag.title }}</a>,
+				    {% if loop.last %}
+                    <a href="{{ url('ideas/tags/'~tag.slug) }}">{{ tag.title }}</a>
+                    {% endif %}	
+			
+			{% endfor %}
+			
+			
 			{% endif %}
 		</div>
 
