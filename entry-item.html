@@ -29,7 +29,7 @@
 
 		<div class="div_idea_tags">
 
-            {% if entry.categories | length %}
+            {% if entry.IdeaSpace | length %}
 
 			IdeaSpace: 
 		{% for category in entry.IdeaSpace %}
@@ -41,7 +41,7 @@
                     {% endif %}
 		
 		{% endfor %}
-
+{% endif %}	
 
 
 			{% if entry.tags | length %}
