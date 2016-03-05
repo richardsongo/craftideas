@@ -34,8 +34,7 @@
 
 			<span class="vcard"><a href="/authors/{{ author.username }}" class="fn url hasHover">{{ entry.author }}</a>
 			<span class="reputation gold">4079</span>
-			</span> - {{ entry.postDate("d M Y") }}  / <a href="{{ entry.url }}#commentsanch">Comments (<span id="count_{{ uniqentryid }}">{{ entry.comments.count }}</span>)</a></div>
-
+			</span> - {{ entry.postDate | date("d M Y") }}  / <a href="{{ entry.url }}#commentsanch">Comments (<span id="count_{{ uniqentryid }}">{{ entry.comments.count }}</span>)</a></div>
 			<div class="div_idea_body">
 			{{ entry.body }}
 
