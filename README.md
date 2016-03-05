@@ -11,12 +11,14 @@ Favorites:
 Custom entry ID:
 User Reputation: 
 
-<pre>    {% <span class="pl-k">set</span> <span class="pl-smi">tags</span> <span class="pl-k">=</span> <span class="pl-smi">craft</span>.<span class="pl-smi">popularTags</span>.<span class="pl-smi">taglist</span>(<span class="pl-c1">15</span>) %}
+<blockquote>    {% <span class="pl-k">set</span> <span class="pl-smi">tags</span> <span class="pl-k">=</span> <span class="pl-smi">craft</span>.<span class="pl-smi">popularTags</span>.<span class="pl-smi">taglist</span>(<span class="pl-c1">15</span>) %}
     &lt;<span class="pl-ent">ul</span>&gt;
         {% <span class="pl-k">for</span> <span class="pl-smi">tag</span> <span class="pl-k">in</span> <span class="pl-smi">tags</span> %}
             &lt;<span class="pl-ent">li</span>&gt;{{<span class="pl-smi">tag</span>.<span class="pl-smi">title</span>}} - {{<span class="pl-smi">tag</span>.<span class="pl-smi">slug</span>}}&lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>count<span class="pl-pds">"</span></span>&gt;({{<span class="pl-smi">tag</span>.<span class="pl-smi">count</span>}})&lt;/<span class="pl-ent">span</span>&gt;&lt;/<span class="pl-ent">li</span>&gt;
         {% <span class="pl-k">endfor</span> %}
-    &lt;/<span class="pl-ent">ul</span>&gt;</pre>
+    &lt;/<span class="pl-ent">ul</span>&gt;
+    
+    </blockquote>
 
 
 
