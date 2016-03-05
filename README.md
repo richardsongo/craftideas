@@ -17,3 +17,13 @@ User Reputation:
             &lt;<span class="pl-ent">li</span>&gt;{{<span class="pl-smi">tag</span>.<span class="pl-smi">title</span>}} - {{<span class="pl-smi">tag</span>.<span class="pl-smi">slug</span>}}&lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>count<span class="pl-pds">"</span></span>&gt;({{<span class="pl-smi">tag</span>.<span class="pl-smi">count</span>}})&lt;/<span class="pl-ent">span</span>&gt;&lt;/<span class="pl-ent">li</span>&gt;
         {% <span class="pl-k">endfor</span> %}
     &lt;/<span class="pl-ent">ul</span>&gt;</pre>
+
+
+
+
+{% for category in entry.mediaType %}
+    <b>{{ category.title }}</b>
+    {%- if not loop.last -%}
+      ,
+    {% endif %}
+{% endfor %}
