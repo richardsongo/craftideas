@@ -1,12 +1,3 @@
-{# Get the relevant entries #}
-{% set categoryQuery = craft.request.getParam('category') %}
-{% set categories = craft.categories.group('sectionName').slug(categoryQuery) %}
-{# Set the search parameters #} 
-{% set searchParams = {
-    relatedTo: categories,
-    section: 'sectionName'
-} %}
-
 
 
 <div class="row">
