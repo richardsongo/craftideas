@@ -1,0 +1,46 @@
+<div class="row">
+
+	<div class="col-lg-2">
+		<div class="div_votes_container"> 
+		<div class="div_promote" title="Promote">Promote</div>
+		<div class="div_votes">8</div>
+		<div class="div_demote" title="Demote">Demote</div>
+		<div class="div_meh" title="No Opinion"><br>No Opinion</div>
+		</div>
+	</div>
+
+	<div class="col-lg-10">
+
+		<h3>
+			<span id="star_{{ uniqentryid }}" class="star_empty" alt="Mark as a favorite" title="Mark as a favorite"></span> 
+			<a href="{{ entry.url }}">{{ entry.title }}</a>
+		</h3>
+
+		<div class="div_idea_tags">
+
+            {% if entry.categories | length %}
+
+			IdeaSpace: <a href="{{ entrycateGories.url }}">{{ entrycateGories }}</a>
+			
+			{% endif %}
+
+
+			{% if entry.tags | length %}
+			<br>Tags: {% for tag in craft.tags.group('blogTags') %}<a href="{{ url('ideas/tags/'~tag.slug) }}">{{ tag.title }}</a>{% endfor %}
+			{% endif %}
+		</div>
+
+		<div class="div_whoseidea">
+
+			<span class="vcard"><a href="/authors/{{ author.username }}" class="fn url hasHover">{{ entry.author }}</a>
+			<span class="reputation gold">4079</span>
+			</span> - {{ entry.postDate("d M Y") }}  / <a href="{{ entry.url }}#commentsanch">Comments (<span id="count_{{ uniqentryid }}">{{ entry.comments.count }}</span>)</a></div>
+
+			<div class="div_idea_body">
+			{{ entry.body }}
+
+		</div>
+
+	</div>
+
+</div>
