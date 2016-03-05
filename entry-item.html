@@ -2,12 +2,12 @@
 
 	<div class="col-lg-2">
 		<div class="div_votes_container"> 
-		<div class="div_promote" title="Promote">Promote</div>
-		<div class="div_votes">8</div>
-		<div class="div_demote" title="Demote">Demote</div>
-		<div class="div_meh" title="No Opinion"><br>No Opinion</div>
+	                <div>{{ craft.upvote.upvote(entry.id) }}</div>
+	                <div>{{ craft.upvote.tally(entry.id) }}</div>
+	                <div>{{ craft.upvote.downvote(entry.id) }}</div>
 		</div>
 	</div>
+
 
 	<div class="col-lg-10">
 
