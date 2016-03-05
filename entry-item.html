@@ -53,7 +53,7 @@
 
 		<div class="div_whoseidea">
 
-			<span class="vcard"><a href="/authors/{{ author.username }}" class="fn url hasHover">{{ entry.author }}</a>
+			<span class="vcard"><a href="/authors/{{ entry.author.username }}" class="fn url hasHover">{{ entry.author.fullName }}</a>
 			<span class="reputation gold">4079</span>
 			</span> - {{ entry.postDate | date("d M Y") }}  / <a href="{{ entry.url }}#commentsanch">Comments (<span id="count_{{ uniqentryid }}">{{ entry.comments.count }}</span>)</a></div>
 			<div class="div_idea_body">
