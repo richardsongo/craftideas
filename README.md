@@ -22,10 +22,11 @@ User Reputation:
 
 
 
-
+<pre>
 {% for category in entry.mediaType %}
     <b>{{ category.title }}</b>
     {%- if not loop.last -%}
       ,
     {% endif %}
 {% endfor %}
+</pre>
