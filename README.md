@@ -1,22 +1,18 @@
 # craftideas
-craftideas
+<h1>craftideas</h1>
 
 
 <h2>Plugins</h2>
 <ul>
 <li>Tags: https://github.com/philbirnie/CraftPopularTags</li>
 <li>UpVote</li>
+<li>Custom entry ID</li>
 <li>Comments</li>
+<li>User Reputation</li>
 </ul>
 
 
-
-
-Comments:
-Voteup:
-Favorites:
-Custom entry ID:
-User Reputation: 
+<h2>Plugins</h2>
 
 <pre>    {% <span class="pl-k">set</span> <span class="pl-smi">tags</span> <span class="pl-k">=</span> <span class="pl-smi">craft</span>.<span class="pl-smi">popularTags</span>.<span class="pl-smi">taglist</span>(<span class="pl-c1">15</span>) %}
     &lt;<span class="pl-ent">ul</span>&gt;
@@ -28,6 +24,7 @@ User Reputation:
     </pre>
 
 
+<h2>Category</h2>
 
 <pre>
 {% for category in entry.mediaType %}
