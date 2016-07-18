@@ -4,7 +4,8 @@
 
 <h2>Plugins</h2>
 <ul>
-<li>Tags: https://github.com/philbirnie/CraftPopularTags</li>
+<li>Popular Tags: https://github.com/philbirnie/CraftPopularTags</li>
+<li>Tags</li>
 <li>UpVote</li>
 <li>Custom entry ID</li>
 <li>Comments</li>
