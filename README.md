@@ -2,8 +2,14 @@
 craftideas
 
 
-Plugins
-Tags: https://github.com/philbirnie/CraftPopularTags
+<h2>Plugins</h2>
+<ul>
+<li>Tags: https://github.com/philbirnie/CraftPopularTags</li>
+<li>VoteUp</li>
+</ul>
+
+
+
 
 Comments:
 Voteup:
