@@ -5,7 +5,8 @@ craftideas
 <h2>Plugins</h2>
 <ul>
 <li>Tags: https://github.com/philbirnie/CraftPopularTags</li>
-<li>VoteUp</li>
+<li>UpVote</li>
+<li>Comments</li>
 </ul>
 
 
