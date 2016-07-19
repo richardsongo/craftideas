@@ -1,0 +1,139 @@
+{% extends "_layout" %}
+{% set title = "Search results for '{{ query }}' " %}
+
+{% block content %}
+
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+
+	
+<form class="top-search-main" action="{{ url('search') }}">
+    <input class="col-lg-10 col-md-10 col-sm-10 col-xs-10" type="search" name="q" placeholder="Search">
+    <input class="col-lg-2 col-md-2 col-sm-2 col-xs-2" type="submit" value="Go">
+</form>	
+
+
+{% set query = craft.request.getParam('q') %}
+
+{% paginate craft.entries.search(query).order('score').limit(2) as entries %}
+
+
+
+{% if entries|length %}
+
+    <h1 id="search-page-header">{{ entries|length }} search results for "{{ query }}"</h1>
+
+    <ul>
+        {% for entry in entries %}
+        {% set image = entry.featuredImage.first() %}
+		{% set entryCategory = entry.categories.first() %}
+
+    
+    
+    		<article class="row news-item">
+		
+	        <div class="col-lg-4 col-md-4 col-xs-12 media-leftf news-thumbnail">
+					{% if image %}
+					<figure>
+					<a class="" href="{{ entry.url }}"><img class="media-object" src="{{ image.getUrl('moyen') }}" alt="{{ image.title }}"></a>
+					</figure>
+					{% endif %}			
+			</div>
+	
+			<div class="col-lg-8 col-md-8 col-xs-12 news-content">
+				{% if entryCategory %}<h4 class="story-category"><a href="{{ entryCategory.url }}">{{ entryCategory }}</a></h4>{% endif %}
+				<h2 class="media-heading news-title"><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
+				<span class="timesinc story-byline">{{ entry.postDate.nice() }}</span>
+				
+				{% if newsEntry.summary |length %}
+				<p class="story-summary hidden-xs">{{ entry.summary }}</p>
+				{% else %}
+				<p class="story-summary hidden-xs">{{ entry.body | trimit(80) }}</p>
+				{% endif %}
+				
+			</div>
+		
+		</article>
+		
+    
+    
+    {% endfor %}
+      </ul>
+    
+    
+  
+    
+    
+{% else %}
+    <p>Your search for “{{ query }}” didn’t return any results.</p>
+{% endif %}
+
+
+
+
+
+
+			<div id="pagination">
+				<ul class="pagination pagination-sm">
+				
+				
+				
+				
+				    <li class="disabled"><a href=""> Page {{ paginate.currentPage }} of {{paginate.totalPages}}</a></li>
+				
+                    <li><a href="{{ paginate.firstUrl }}?q={{ query }}">First Page</a> </li>
+					
+								
+					{% if paginate.prevUrl %}
+						<li><a href="{{ paginate.prevUrl }}?q={{ query }}" class="pag-prev-link">Previous Page</a></li>
+					{% endif %}
+
+					{% for page, url in paginate.getPrevUrls(5) %}
+						<li><a href="{{ url }}?q={{ query }}">{{ page }}</a></li>
+					{% endfor %}
+
+					<li class="current active on"><a href="{{ url }}">{{ paginate.currentPage }}</a></li>
+
+					{% for page, url in paginate.getNextUrls(5) %}
+						<li><a href="{{ url }}?q={{ query }}">{{ page }}</a></li>
+					{% endfor %}
+
+					{% if paginate.nextUrl %}
+						<li><a href="{{ paginate.nextUrl }}?q={{ query }}" class="pag-next-link">Next Page</a></li>
+					{% endif %}
+					
+					<li><a href="{{ paginate.lastUrl }}?q={{ query }}">Last Page</a></li>
+					
+				</ul>
+			</div>
+		{% endpaginate %}
+		
+
+
+	
+
+		
+</div>
+<div class="col-md-4">
+
+{% include "_partials/sidebar" %}
+
+</div>
+
+</div>		
+		
+		
+		
+</div>	
+
+
+
+
+
+
+
+
+		
+	
+{% endblock %}
