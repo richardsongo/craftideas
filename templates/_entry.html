@@ -1,0 +1,51 @@
+{#
+ # News entry template
+ # -------------------
+ #}
+ 
+{% extends "_layout" %}
+{% set title = entry.title %}
+{% set entryCategory = entry.categories.first() %}
+
+
+{% block head %}
+{{ parent() }}
+{% include "_partials/metas-article" %}
+
+{% endblock %}
+
+{% block content %}
+
+<div id="fb-root"></div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.4&appId=921935824563119";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+{{ craft.counter.increment(entry.id) }}
+{% set entryCategory = entry.categories.first() %}
+{% set image = entry.featuredImage.first() %}
+{% set imagegal = entry.featuredImage %}
+{% set imagegal2 = entry.featuredImage %}
+{% set entryauthor = entry.author.username %}
+{% set transform = {
+    mode: 'crop',
+    width: 836,
+    height: 339,
+    quality: 75,
+    position: 'top-center'
+} %}
+{% do image.setTransform(transform) %}
+
+
+
+
+{% include ["/_types/" ~ entry.type, "/_types/default"] %}
+
+{{ SocialShareScripts() }}
+
+{% endblock %}
