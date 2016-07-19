@@ -1,0 +1,87 @@
+{% extends "_layout" %}
+{% set title = "News" %}
+
+{% block content %}
+{% set tag = craft.tags.title(tag).first() %}
+
+<div>
+<h1 class="category-hero--text">{{ tag.title }}</h1>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+
+<h2>Entries tagged with topic “{{ tag.title }}”</h2>
+
+
+{% paginate craft.entries.section('news').relatedTo(tag).order('title') as newsEntries %}
+
+			{# Loop through this page's News entries #}
+			{% for newsEntry in newsEntries %}
+			{% set image = newsEntry.featuredImage.first() %}
+			{% set entryCategory = newsEntry.categories.first() %}
+
+				
+		<article class="row news-item">
+		
+	        <div class="col-lg-4 col-md-4 col-xs-12 media-leftf news-thumbnail">
+					{% if image %}
+					<figure>
+					<a class="" href="{{ newsEntry.url }}"><img class="media-object" src="{{ image.getUrl('moyen') }}" alt="{{ image.title }}"></a>
+					</figure>
+					{% endif %}			
+			</div>
+	
+			<div class="col-lg-8 col-md-8 col-xs-12 news-content">
+				{% if entryCategory %}<h4 class="story-category"><a href="{{ entryCategory.url }}">{{ entryCategory }}</a></h4>{% endif %}
+				<h2 class="media-heading news-title"><a href="{{ newsEntry.url }}">{{ newsEntry.title }}</a></h2>
+				<span class="timesinc story-byline">{{ newsEntry.postDate.nice() }}</span>
+				
+				{% if newsEntry.summary |length %}
+				<p class="story-summary hidden-xs">{{ newsEntry.summary }}</p>
+				{% else %}
+				<p class="story-summary hidden-xs">{{ newsEntry.body | trimit(80) }}</p>
+				{% endif %}
+				
+			</div>
+		
+		</article>
+		
+		
+		{% endfor %}
+
+
+
+			<div id="pagination">
+				<ul class="pagination pagination-sm">
+					{% if paginate.prevUrl %}
+						<li><a href="{{ paginate.prevUrl }}" class="pag-prev-link">Previous Page</a></li>
+					{% endif %}
+
+					{% for page, url in paginate.getPrevUrls(5) %}
+						<li><a href="{{ url }}">{{ page }}</a></li>
+					{% endfor %}
+
+					<li class="current active on"><a href="{{ url }}">{{ paginate.currentPage }}</a></li>
+
+					{% for page, url in paginate.getNextUrls(5) %}
+						<li><a href="{{ url }}">{{ page }}</a></li>
+					{% endfor %}
+
+					{% if paginate.nextUrl %}
+						<li><a href="{{ paginate.nextUrl }}" class="pag-next-link">Next Page</a></li>
+					{% endif %}
+				</ul>
+			</div>
+		{% endpaginate %}
+		
+		
+		
+</div>
+</div>		
+		
+		
+		
+</div>	
+{% endblock %}
