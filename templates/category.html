@@ -1,0 +1,48 @@
+{# dont forget to add .relatedTo(category) before going to production  #}
+
+{% extends "_layout" %}
+{% set title = category.title %}
+
+{% block content %}
+
+  <section>
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  
+    <h1 style="text-align:center" id="page-title"><span>{{ category.title }}</span></h1>
+    <hr>
+  
+</div>
+
+</div>
+<div class="row">
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+
+{% paginate craft.entries.section('news').relatedTo(category).limit(10) as newsEntries %}
+
+<div class="row masonry-container grid js-masonry">
+  
+    {% for entry in newsEntries %}
+        {% set image = entry.featuredImage.first() %}
+        {% set entryCategory = entry.categories.first() %}
+        {% set transform = { mode: 'crop', width: 360, quality: 100, position: 'top-center' } %}  {% do image.setTransform(transform) %}
+    
+        {% include 'components/entry-item' with {'picture': entry.featuredImage, 'link': entry.url, 'summary': entry.summary } %}
+    {% endfor %}
+
+</div>
+
+{% include 'components/pagination'  %}
+
+{% endpaginate %}
+		
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        {% include "_partials/sidebar" %}
+</div>
+</div>		
+		
+</div>
+</section>	
+{% endblock %}
