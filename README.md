@@ -7,7 +7,7 @@
 <li>Popular Tags: https://github.com/philbirnie/CraftPopularTags</li>
 <li>Tags</li>
 <li>UpVote</li>
-<li>Custom entry ID</li>
+<li>Custom entry ID: </li>
 <li>Comments</li>
 <li>User Reputation</li>
 </ul>
