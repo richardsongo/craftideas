@@ -33,7 +33,7 @@
 <h2>Category</h2>
 
 <pre>
-{% for category in entry.mediaType %}
+{% for category in entry.ideaSpace %}
     <b>{{ category.title }}</b>
     {%- if not loop.last -%}
       ,
