@@ -13,6 +13,8 @@
 <li>User Reputation: <a href="">Points</a></li>
 <li>Favorites: <a href="">Points</a></li>
 <li>Export as xml</li>
+<li>Advances Search</li>
+<li>Ajax Relation</li>
 </ul>
 
 
