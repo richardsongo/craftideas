@@ -9,7 +9,7 @@
 <li>Categories</li>
 <li>UpVote <a href="">UpVote</a></li>
 <li>Custom entry ID: <a href="">Unique ID</a></li>
-<li>Comments</li>
+<li><a href="https://github.com/engram-design/Comments">Comments</a></li>
 <li>User Reputation: <a href="">Points</a></li>
 <li>Favorites: <a href="">Points</a></li>
 <li>Export as xml</li>
@@ -79,3 +79,12 @@
     
     
 </pre>
+
+
+
+<pre>
+
+
+</pre>
+
+
