@@ -47,6 +47,35 @@
 {% endfor %}
 </pre>
 
+<h2>Tags</h2>
+
+<pre>
+<ul>
+{% for tag in craft.tags.group('ideaTags') %}
+    <a href="ideas/tags/{{tag.slug}}">{{ tag.title }}</a> 
+    {%- if not loop.last -%} , {% endif %}
+{% endfor %}
+</ul>
+</pre>
 
 
 
+<pre>
+<article>
+<h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+<ul>
+<li><strong>IdeaSpace:</strong><a href="">{{ entry.author.fullName }}</a></li>
+<li><strong>Tags:</strong><a href="">{{ entry.author.fullName }}</a></li>
+<li><strong>Idea author:</strong><a href="">{{ entry.author.fullName }}</a> on {{ entry.postDate|date("M d, Y") }} </li>
+<li><strong>Idea status:</strong>{{ entry.status }}</li>
+<li><strong>Link:</strong><a href="{{ entry.url }}">Permalink</a> / <a href="{{ entry.url }}">Email </a></li>
+</ul>
+    
+<div class="idea-body">{{ entry.body }}</div>
+
+<a href="{{ entry.url }}">Continue reading</a>
+
+</article>
+    
+    
+</pre>
