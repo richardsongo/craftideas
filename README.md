@@ -6,10 +6,11 @@
 <ul>
 <li>Popular Tags: https://github.com/philbirnie/CraftPopularTags</li>
 <li>Tags</li>
-<li>UpVote</li>
-<li>Custom entry ID: </li>
+<li>Categories</li>
+<li>UpVote <a href="">UpVote</a></li>
+<li>Custom entry ID: <a href="">Unique ID</a></li>
 <li>Comments</li>
-<li>User Reputation</li>
+<li>User Reputation: <a href="">Points</a></li>
 </ul>
 
 
