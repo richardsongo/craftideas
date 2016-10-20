@@ -12,6 +12,7 @@
 <li>Comments</li>
 <li>User Reputation: <a href="">Points</a></li>
 <li>Favorites: <a href="">Points</a></li>
+<li>Export as xml</li>
 </ul>
 
 
