@@ -46,6 +46,25 @@
 
 {% include ["/_types/" ~ entry.type, "/_types/default"] %}
 
+
+<table>
+    {% for entry in craft.entries.section('ideas') %}
+        <tr>
+            <td>
+                <div>{{ craft.upvote.upvote(entry.id) }}</div>
+                <div>{{ craft.upvote.tally(entry.id) }}</div>
+                <div>{{ craft.upvote.downvote(entry.id) }}</div>
+            </td>
+            <td>{{ entry.title }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+
+
+
+
+
 {{ SocialShareScripts() }}
 
 {% endblock %}
