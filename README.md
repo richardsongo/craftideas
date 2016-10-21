@@ -8,7 +8,7 @@
 <li>Tags</li>
 <li>Categories</li>
 <li>UpVote <a href="">UpVote</a></li>
-<li>Custom entry ID: <a href="">Unique ID</a></li>
+<li>Custom entry ID: <a href="http://twig.sensiolabs.org/doc/functions/random.html"> Twig Unique ID</a></li>
 <li><a href="https://github.com/engram-design/Comments">Comments</a></li>
 <li>User Reputation: <a href="https://straightupcraft.com/craft-plugins/points">Points</a></li>
 <li>Favorites: <a href="">Points</a></li>
@@ -50,12 +50,10 @@
 <h2>Tags</h2>
 
 <pre>
-<ul>
 {% for tag in craft.tags.group('ideaTags') %}
     <a href="ideas/tags/{{tag.slug}}">{{ tag.title }}</a> 
     {%- if not loop.last -%} , {% endif %}
 {% endfor %}
-</ul>
 </pre>
 
 
@@ -83,6 +81,12 @@
 
 
 <pre>
+{{ random(['apple', 'orange', 'citrus']) }} {# example output: orange #}
+{{ random('ABC') }}                         {# example output: C #}
+{{ random() }}                              {# example output: 15386094 (works as the native PHP mt_rand function) #}
+{{ random(5) }}                             {# example output: 3 #}
+
+{{ random(['apple', 'orange', 'citrus']) }}-{{ random('ABC') }}{{ random() }}
 
 
 </pre>
