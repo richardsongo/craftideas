@@ -42,11 +42,6 @@
 {% do image.setTransform(transform) %}
 
 
-
-
-{% include ["/_types/" ~ entry.type, "/_types/default"] %}
-
-
 <table>
     {% for entry in craft.entries.section('ideas') %}
         <tr>
@@ -60,11 +55,44 @@
     {% endfor %}
 </table>
 
+<div>
+<h2>{{ entry.title }}</h2>
+<div>Categories: 
+<ul>
+    {% nav category in craft.categories.group('ideaSpaces') %}
+        <li>
+            <a href="{{ category.url }}">{{ category.title }}</a>
+            {% ifchildren %}
+                <ul>
+                    {% children %}
+                </ul>
+            {% endifchildren %}
+        </li>
+    {% endnav %}
+</ul> 
+ 
+</div>
+<div>Tags: 
+{% for tag in craft.tags.group('blogTags') %}
+    <a href="{{ url('idea/tags/'~tag.id) }}">{{ tag.title }}</a>
+{% endfor %} 
+ 
+ 
+ </div>
+<div>
+ Author: {{ entry.author.fullName }} 
+ Date: {{ entry.postDate("M d, Y") }}</div>
+
+ <div>Status Open: </div>
+<div>Permalink Open: </div>
+</div>
+<div class="ideaBody">
+
+ {{ entry.ideaBody }}
+
+</div>
 
 
 
-
-
-{{ SocialShareScripts() }}
 
 {% endblock %}
